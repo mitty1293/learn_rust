@@ -69,8 +69,29 @@
 
 
 // 3.2. データ型 -> タプル型
-fn main() {
-    let tup: (i32, f64, u8) = (500, 6.4, 1);
-    let (x, y, z) = tup;
-    
-}
+// fn main() {
+//     let tup: (i32, f64, u8) = (500, 6.4, 1);
+//     let (x, y, z) = tup;
+//     println!("The value of y is: {}", y);
+
+//     let five_hundred = tup.0;
+//     println!("five_hundred: {}", five_hundred);
+//     let six_point_four = tup.1;
+//     println!("six_point_four: {}", six_point_four);
+//     let one = tup.2;
+//     println!("one: {}", one);
+// }
+
+
+// 3.2. データ型 -> 配列型
+// fn main() {
+//     let a = [1, 2, 3, 4, 5];
+//     let first = a[0];
+//     println!("first: {}", first);
+//     let second = a[1];
+//     println!("second: {}", second);
+
+//     let index = 10;
+//     let element = a[index];
+//     println!("The value of element is: {}", element);
+// }
