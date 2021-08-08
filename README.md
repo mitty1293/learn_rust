@@ -1,4 +1,5 @@
 # rust_the_book
+[The Rust Programming Language](https://doc.rust-jp.rs/book-ja/title-page.html)をやる
 ## Environment setup
 ```shell
 $ git clone https://github.com/mitty1293/rust_the_book.git
