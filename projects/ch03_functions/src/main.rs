@@ -28,11 +28,33 @@
 
 
 // 3.3. 関数 -> 関数本体は、文と式を含む
+// fn main() {
+//     let x = 5;
+//     let y = {
+//         let x = 3;
+//         x + 1
+//     };
+//     println!("The value of y is: {}", y);
+// }
+
+
+// 3.3. 関数 -> 戻り値のある関数
+// fn five() -> i32 {
+//     5
+// }
+
+// fn main() {
+//     let x = five();
+//     println!("The value of x is: {}", x);
+// }
+
+
+// 3.3. 関数 -> 戻り値のある関数
 fn main() {
-    let x = 5;
-    let y = {
-        let x = 3;
-        x + 1
-    };
-    println!("The value of y is: {}", y);
+    let x = plus_one(5);
+    println!("The value of x is: {}", x);
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
