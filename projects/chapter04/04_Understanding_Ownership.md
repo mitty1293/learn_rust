@@ -52,5 +52,17 @@ let s2 = s1;
 
 <img src="https://doc.rust-jp.rs/book-ja/img/trpl04-02.svg" alt="図4-2" width="25%" title="図4-2">
 
+この状態でスコープを抜けると、`s1`,`s2`が共に同じメモリを開放してしまうのでは？  
+二重開放エラーとなってしまうのではないか。
+
+Rustでは問題を解決するため以下図4-3のような、所有権を`s1`から`s2`へ移動させるムーブを行う。
+* `s1`を`s2`にコピーする代りに`s1`を無効化する。
+* `s2`生成後に`s1`を使おうとするとエラーが発生する。
+* `s2`だけが有効なのでスコープを抜けると`s2`のみがメモリを開放する。
+
+<img src="https://doc.rust-jp.rs/book-ja/img/trpl04-04.svg" alt="図4-3" width="25%" title="図4-3">
+
+これで、所有権規則の`いかなる時も所有者は一つである`が守られる。
+
 ## 参考資料
 https://zenn.dev/toga/books/rust-atcoder/viewer/23-string
