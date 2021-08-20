@@ -116,8 +116,17 @@ some_function(s);               // sの値が関数にムーブされ...
                                 // ... ここではもう有効ではない。ここ以降でsを使うとエラーになる。
 ```
 ### 戻り値とスコープ
-
-
+関数が値を返すことでも所有権はムーブする。  
+例えば`String`が関数に渡されると、関数に所有権がムーブされ、戻り値があるならば所有権は戻り値にムーブされる。
+```Rust
+let s2 = String::from("hello");     // s2がスコープに入る
+let s3 = takes_and_gives_back(s2);  // s2はtakes_and_gives_backにムーブされ、戻り値もs3にムーブされる
+fn takes_and_gives_back(a_string: String) -> String { // a_stringがスコープに入る。
+    a_string  // a_stringが返され、呼び出し元関数にムーブされる
+}
+```
+関数に所有権をムーブし、再利用したい値はまた所有権と共に返さなくてはいけない。  
+この煩わしさを解消するのが**参照**である。
 
 ## 参考資料
 https://zenn.dev/toga/books/rust-atcoder/viewer/23-string
