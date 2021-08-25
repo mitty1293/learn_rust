@@ -35,3 +35,35 @@ fn change(some_string: &String) {
     some_string.push_str(", world");
 }
 ```
+### 可変な参照
+借用している変数を変更したい場合、
+* 変数宣言時に`mut`で可変なことを宣言し、  
+* `&mut`で可変な参照を生成し、
+* `some_string: &mut String`で引数に可変な参照を受け入れる
+```Rust
+fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+}
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
+可変な参照の制約として、
+* 特定のスコープで、ある特定のデータに対しては、 一つしか可変な参照を持てない
+    * データ競合を防ぐため
+    ```Rust
+    // 以下はsを可変として2回借用しようとしておりエラーになる
+    // r1前後に{}を配置して、r1がスコープを抜けた後ならr2で可変な参照を持てる。
+    let r1 = &mut s;
+    let r2 = &mut s;
+    ```
+* 不変な参照をしている間は可変な参照をすることはできない
+    * 不変な参照の使用者は、それ以降に値が変わることを予想していないため
+    * 複数の不変参照は可能。データ読み込みに対して影響は与えないため。
+    ```Rust
+    let mut s = String::from("hello");
+    let r1 = &s; // 問題なし
+    let r2 = &s; // 問題なし
+    let r3 = &mut s; // 大問題！
+    ```

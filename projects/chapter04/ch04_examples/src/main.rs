@@ -47,11 +47,50 @@
 // }
 
 
-// 4.2. 参照と借用
+// // 4.2. 参照と借用
+// fn main() {
+//   let s = String::from("hello");
+//   change(&s);
+// }
+// fn change(some_string: &String) {
+//   some_string.push_str(", world");
+// }
+
+
+// // 4.2. 参照と借用 -> 可変な参照
+// fn main() {
+//   let mut s = String::from("hello");
+//   change(&mut s);
+// }
+// fn change(some_string: &mut String) {
+//   some_string.push_str(", world");
+// }
+
+
+// // 4.2. 参照と借用 -> 可変な参照
+// fn main() {
+//   let mut s = String::from("hello");
+//   let r1 = &mut s;
+//   let r2 = &mut s;
+//   println!("{}, {}", r1, r2);
+// }
+
+
+// // 4.2. 参照と借用 -> 可変な参照
+// fn main() {
+//   let mut s = String::from("hello");
+//   {
+//     let r1 = &mut s;
+//   }
+//   let r2 = &mut s;
+// }
+
+
+// 4.2. 参照と借用 -> 可変な参照
 fn main() {
-  let s = String::from("hello");
-  change(&s);
-}
-fn change(some_string: &String) {
-  some_string.push_str(", world");
+  let mut s = String::from("hello");
+  let r1 = &s;
+  let r2 = &s;
+  let r3 = &mut s;
+  println!("{}, {}, and {}", r1, r2, r3);
 }
