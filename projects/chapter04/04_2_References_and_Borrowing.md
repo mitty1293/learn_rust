@@ -67,3 +67,31 @@ fn change(some_string: &mut String) {
     let r2 = &s; // 問題なし
     let r3 = &mut s; // 大問題！
     ```
+### 宙に浮いた参照
+Rustではダングリングポインタが発生しないよう保証してくれる。
+* ダングリングポインタとは
+    * 無効なメモリ領域を差すポインタ
+    * あるメモリ領域が無効化されたにも関わらず、その領域を参照し続けているポインタ
+
+以下コードを実行すると、コンパイラはエラーを発生しダングリングを未然に防いでくれる。
+```Rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+fn dangle() -> &String { // dangleはStringへの参照を返す
+    let s = String::from("hello"); // sは新しいString
+    &s // String sへの参照を返す
+} // ここで、sはスコープを抜け、ドロップされる。そのメモリは消される。
+  // 呼び出し元（reference_to_nothing）は、sが解放されたことを知らずにsへの参照を差し続けてしまう。
+```
+解決策は、以下のように`String`を直接返せばよい。  
+所有権は呼び出し元（reference_to_nothing）にムーブし、何も解放されることは無い。
+```Rust
+fn no_dangle() -> String {
+    let s = String::from("hello");
+    s
+}
+```
+
+### まとめ
+* 任意のタイミングで、1つの可変参照 **か** 不変な参照いくつでも の**どちらか** を行える。

@@ -86,11 +86,21 @@
 // }
 
 
-// 4.2. 参照と借用 -> 可変な参照
+// // 4.2. 参照と借用 -> 可変な参照
+// fn main() {
+//   let mut s = String::from("hello");
+//   let r1 = &s;
+//   let r2 = &s;
+//   let r3 = &mut s;
+//   println!("{}, {}, and {}", r1, r2, r3);
+// }
+
+
+// 4.2. 参照と借用 -> 宙に浮いた参照
 fn main() {
-  let mut s = String::from("hello");
-  let r1 = &s;
-  let r2 = &s;
-  let r3 = &mut s;
-  println!("{}, {}, and {}", r1, r2, r3);
+  let reference_to_nothing = dangle();
+}
+fn dangle() -> String {
+  let s = String::from("hello");
+  s
 }
