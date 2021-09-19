@@ -42,3 +42,4 @@ let six = plus_one(five);
 // None => None とマッチし、Noneを返す。
 let none = plus_one(None);
 ```
+### マッチは包括的
