@@ -15,6 +15,7 @@ fn value_in_cents(coin: Coin) -> u32 {
 }
 ```
 1本のアームは、比較されるパターン（ここ=>）と紐づいたコード（=>ここ）の2つの部品でできている。  
+最初のアームでは、パターンは`Coin::Penny` でコードは`1`である。  
 まず値とパターンを比較し、マッチすれば紐づいたコードが実行される。  
 マッチしなければ、次のアームで同様に比較を行う。
 
@@ -23,3 +24,21 @@ fn value_in_cents(coin: Coin) -> u32 {
 アームのコードが短い場合、波括弧は使用されない。  
 アームのコードが複数行の場合、波括弧を使用するのが普通。
 ### 値に束縛されるパターン
+matchのもう1つの便利な機能は、マッチしたパターンから値の部分を取り出すことができること。
+### Option<T>とのマッチ
+matchを使えば、当然列挙型の一種である`Option<T>`も扱える。
+```Rust
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+let five = Some(5);
+// plus_oneの本体の変数xはSome(5)になる。
+// Some(i) => Some(i + 1) とマッチし、Some(5 + 1) = Some(6)を返す。
+let six = plus_one(five);
+// xはNoneになる。
+// None => None とマッチし、Noneを返す。
+let none = plus_one(None);
+```
