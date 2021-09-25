@@ -5,3 +5,4 @@ do
     echo "${i}"
     touch ./chapter"${1}"/"${1}"_"${i}"_.md
 done
+# sh mkchapter.sh [chapterNo] [section count]
