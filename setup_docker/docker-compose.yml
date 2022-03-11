@@ -4,7 +4,7 @@ services:
         image: rust:1.54.0-buster
         container_name: rust-first-steps
         volumes: 
-            - ../projects:/projects
-        working_dir: /projects
+            - ../rust-learning-path:/rust-learning-path
+        working_dir: /rust-learning-path
         tty: true
         user: ${USER_ID}:${GROUP_ID}
