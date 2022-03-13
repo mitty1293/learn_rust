@@ -23,11 +23,41 @@
 - `todo!` マクロは、Rust プログラムで未完了のコードを識別するために使用されます。
     - このマクロは、プロトタイプを作成するときや、完了していない動作を示す場合に便利です。
 # println! マクロ
+[Rust の最初のステップ / Rust プログラムを初めて作成する / Rust プログラムの基本的な構造を理解する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/1-program-structure)
 - `println!` マクロには、画面または "`println!`" に表示される 1 つ以上の入力引数が必要です。
 -  `println!` マクロにより、テキスト文字列内の中かっこ `{}` の各インスタンスが、リスト内の次の引数の値に置き換えられます。
 ```Rust
 fn main() {
     // Call println! with three arguments: a string, a value, a value
     println!("The first letter of the English alphabet is {} and the last letter is {}.", 'A', 'Z');
+}
+```
+# 変数のシャドウ処理
+[Rust の最初のステップ / Rust プログラムを初めて作成する / Rust で変数を作成して使用する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/2-variables)
+- 既存の変数の名前を使って新しい変数を宣言できる。
+- 前の変数は引き続き存在するが、このスコープでは参照できなくなる。（シャドウされる）
+- 以下ではまず`shadow_num`を宣言し、新しく`shadow_num`を宣言する際に前の変数バインドをシャドウしている。新しい`shadow_num`が作成されている。
+```Rust
+// Declare first variable binding with name "shadow_num"
+let shadow_num = 5;
+
+// Declare second variable binding, shadows existing variable "shadow_num" 
+let shadow_num = shadow_num + 5; 
+
+// Declare third variable binding, shadows second binding of variable "shadow_num"
+let shadow_num = shadow_num * 2; 
+
+println!("The number is {}.", shadow_num);
+```
+- 以下はシャドウ処理ではないが、同じ結果をエラー無く出力できる。
+```Rust
+fn main() {
+    let mut shadow_num = 5;
+
+    shadow_num = shadow_num + 5; 
+
+    shadow_num = shadow_num * 2; 
+
+    println!("The number is {}.", shadow_num);
 }
 ```
