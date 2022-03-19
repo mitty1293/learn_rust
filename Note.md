@@ -10,10 +10,10 @@
 - Cargo.toml ファイルにクレート名を追加して、依存クレートをプロジェクトに追加する。Rustのマニフェストファイル。プロジェクトのメタデータとすべての依存関係をここに保存する。
 # コードインデント
 [Rust の最初のステップ / Rust プログラムを初めて作成する / Rust プログラムの基本的な構造を理解する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/1-program-structure)
-- 式(expression): 値を返す
+- 式(expression): 返り値を評価する。値を返す。
     - ex. `5+6`, `6`, 関数呼び出し, マクロ呼び出し, `{}`
     - 終端にセミコロンを含まない
-- 文(statement): 値を返さない
+- 文(statement): 処理を実行するが値を返さない。
     - 終端にセミコロンを含む
 -  開始コード ステートメントは、左余白からスペース 4 つ分インデントされます。
 - コードがセミコロンで終わっていない場合、開始ステートメントが完了する前に次のコード行を実行する必要があることが認識されます。実行する次のコード行は、さらにスペース 4 つ分インデントされます。
@@ -61,3 +61,21 @@ fn main() {
     println!("The number is {}.", shadow_num);
 }
 ```
+# テキスト: 文字と文字列
+[Rust の最初のステップ / Rust プログラムを初めて作成する / 数値、テキスト、true/false 値のデータ型を調べる](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/3-basic-data-types)
+https://zenn.dev/toga/books/rust-atcoder/viewer/23-string
+- Rustでは、2つの基本的な文字列型と1つの文字型がサポートされている。
+## 文字型
+### `char`型
+- 項目を単一引用符で囲んで指定する。
+```Rust
+let uppercase_s = 'S';
+let lowercase_f = 'f';
+let smiley_face = '😃';
+```
+## 文字列型
+### `str`型(文字列リテラル)
+- 文字列処理において，スライス `[T]` に相当する型
+
+### `String`型
+- 文字列処理において，ベクタ `Vec<T>` に相当する型
