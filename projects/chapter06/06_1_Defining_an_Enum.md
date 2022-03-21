@@ -48,6 +48,9 @@ let keys = KeyPress(String::from("Ctrl+"), 'N');
 // Set the WEKeys variant to use the data in the keys tuple
 let we_key = WebEvent::WEKeys(keys);
 ```
+列挙型の各バリアントは独自の型ではない。ある列挙型のバリアントを使用する関数はすべて、列挙型内のすべてのバリアントを受け入れる必要がある。  
+特定のバリアントだけを受け入れ、他のバリアントは受け入れない関数を使用することはできない。  
+この列挙型のバリアント要件を回避する方法は、列挙型のバリアントごとに個別の構造体を定義すること。
 ### Option enumとNull値に勝る利点
 Rustには`null`が無い。  
 代わりに、値が存在するか不在かを表すenum`Option`がある。  
