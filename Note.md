@@ -1,4 +1,4 @@
-# Cargo を使用してプロジェクトを作成して管理する
+# Cargoコマンド
 [Rust の最初のステップ / Rust とは / Rust 固有の機能](https://docs.microsoft.com/ja-jp/learn/modules/rust-introduction/3-rust-features)
 - `cargo new` コマンドを使用して、新しいプロジェクト テンプレートを作成する。
 - `cargo build` コマンドを使用して、プロジェクトをビルドする。
@@ -8,7 +8,7 @@
 - `cargo doc` コマンドを使用して、プロジェクトのドキュメントをビルドする。
 - `cargo publish` コマンドを使用して、crates.io にライブラリを発行する。
 - Cargo.toml ファイルにクレート名を追加して、依存クレートをプロジェクトに追加する。Rustのマニフェストファイル。プロジェクトのメタデータとすべての依存関係をここに保存する。
-# コードインデント
+# 式と文
 [Rust の最初のステップ / Rust プログラムを初めて作成する / Rust プログラムの基本的な構造を理解する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/1-program-structure)
 - 式(expression): 返り値を評価する。値を返す。
     - ex. `5+6`, `6`, 関数呼び出し, マクロ呼び出し, `{}`
@@ -87,3 +87,7 @@ let smiley_face = '😃';
 - ヒープに割り当てられる。
 - コンパイル時に文字数を把握しておく必要がない。
 - 簡単にいうと、プログラムの実行時に変更される可能性があるテキストデータ。
+# デバッグステートメント
+[Rust の最初のステップ / Rust プログラムを初めて作成する / 複合データに列挙型バリアントを使用する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/5-enum-variants)
+- `#[derive(Debug)]` 構文を使用すると、コードの実行中に、標準出力では見ることのできない特定の値を確認できる。
+- `println!` マクロでデバッグ データを表示するには、構文 `{:#?}` を使用して、読み取り可能な方法でデータを書式設定する。
