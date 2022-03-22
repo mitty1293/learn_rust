@@ -91,3 +91,19 @@ let smiley_face = '😃';
 [Rust の最初のステップ / Rust プログラムを初めて作成する / 複合データに列挙型バリアントを使用する](https://docs.microsoft.com/ja-jp/learn/modules/rust-create-program/5-enum-variants)
 - `#[derive(Debug)]` 構文を使用すると、コードの実行中に、標準出力では見ることのできない特定の値を確認できる。
 - `println!` マクロでデバッグ データを表示するには、構文 `{:#?}` を使用して、読み取り可能な方法でデータを書式設定する。
+# 関数
+- Rustでの一般的な方法では、関数の最後のコード行を返す値と同じにすることで、関数の終了時に値を返す。
+```Rust
+fn divide_by_5(num: u32) -> u32 {
+    num / 5
+    // a = num/5
+    // return a
+    // とかしなくて良い。返す値を最終行にしておくだけで良い。
+    // 式なのでセミコロンを付与してはいけない。付与すると値が評価されずに返らなくなってしまう。
+}
+
+fn main() {
+    let num = 25;
+    println!("{} divided by 5 = {}", num, divide_by_5(num));
+}
+```
