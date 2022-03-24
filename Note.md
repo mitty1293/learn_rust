@@ -101,10 +101,17 @@ fn divide_by_5(num: u32) -> u32 {
     // とかしなくて良い。返す値を最終行にしておくだけで良い。
     // 式なのでセミコロンを付与してはいけない。付与すると値が評価されずに返らなくなってしまう。
 }
-
 fn main() {
     let num = 25;
     println!("{} divided by 5 = {}", num, divide_by_5(num));
+}
+
+fn car_factory(color: String, transmission: Transmission) -> Car {
+    // 関数の最後のコード行を構造体インスタンス呼び出しにすると、インスタンスが呼び出し元に返る。
+    Car {
+        color: color,
+        transmission: transmission
+    }
 }
 ```
 # 配列
@@ -157,7 +164,7 @@ let zeroes = vec![0; 5];
 println!("Zeroes: {:?}", zeroes); 
 
 // 空ベクターの作成
-let mut fruit = Vec::new();
+let mut fruit: Vec<String> = Vec::new();
 let mut car = Vec::<i32>::new()
 
 // シグネチャVec<T>で定義可能
@@ -167,7 +174,7 @@ let v: Vec<u32>;
 ```Rust
 // データ型が不明なときはジェネリック型Tを用いる
 let v: Vec<T>;
-// 型がわかるときには以下のように既知の型。
+// 型がわかるときには以下のようにTに既知の型を指定する。
 Vec<u32>
 Vec<String>
 ```
