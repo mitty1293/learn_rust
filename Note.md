@@ -178,3 +178,18 @@ let v: Vec<T>;
 Vec<u32>
 Vec<String>
 ```
+# Option と Result
+[RustのOptionとResult](https://qiita.com/take4s5i/items/c890fa66db3f71f41ce7)
+## Option
+[Rust の最初のステップ / Rust でエラーを処理する / Option 型を使用して値がない場合に対処する](https://docs.microsoft.com/ja-jp/learn/modules/rust-error-handling/3-use-option-type-deal-with-absence)
+- Option<T>型は 取得できないかもしれない値 を表現する列挙型。
+- 値が無いことを示すNoneとあることを示すSome(T)のどちらかをとる。
+    - Noneがエラーを表しているわけでは無いことに注意。
+    - Noneは値がなかったことを示しているだけで、エラーとは限らない。
+- エラーを表したい場合はResult<T,E>を使う方がふさわしい
+## Result
+[Rust の最初のステップ / Rust でエラーを処理する / Result 型を使用してエラーを処理する](https://docs.microsoft.com/ja-jp/learn/modules/rust-error-handling/5-use-result-type)
+- Result<T,E>は失敗するかもしれない処理の結果を表現する列挙型。
+- Resultはrustコンパイラから特別扱いされており、無視するとwarinigが出る。
+- Resultは例外がないrustにおける標準のエラーハンドリング方法。
+- エラーが発生する可能性がある場合は結果にResultを用いるようにすること。
