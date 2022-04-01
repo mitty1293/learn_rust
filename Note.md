@@ -198,3 +198,4 @@ Vec<String>
 [ Rust の最初のステップ / Rust によるメモリ管理の方法を理解する / 有効期間を使用した参照の検証](https://docs.microsoft.com/ja-jp/learn/modules/rust-memory-management/3-validate-references-with-lifetimes)
 ### 調べること！！！
 - 注釈の必要性と方法がいまいちよくわからない。。。
+- ライフタイム、ライフタイムパラメータ
