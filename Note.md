@@ -193,3 +193,8 @@ Vec<String>
 - Resultはrustコンパイラから特別扱いされており、無視するとwarinigが出る。
 - Resultは例外がないrustにおける標準のエラーハンドリング方法。
 - エラーが発生する可能性がある場合は結果にResultを用いるようにすること。
+# 所有権・借用・参照
+## 有効期間に注釈を付ける
+[ Rust の最初のステップ / Rust によるメモリ管理の方法を理解する / 有効期間を使用した参照の検証](https://docs.microsoft.com/ja-jp/learn/modules/rust-memory-management/3-validate-references-with-lifetimes)
+### 調べること！！！
+- 注釈の必要性と方法がいまいちよくわからない。。。
