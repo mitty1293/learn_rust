@@ -196,6 +196,38 @@ Vec<String>
 # 所有権・借用・参照
 ## 有効期間に注釈を付ける
 [ Rust の最初のステップ / Rust によるメモリ管理の方法を理解する / 有効期間を使用した参照の検証](https://docs.microsoft.com/ja-jp/learn/modules/rust-memory-management/3-validate-references-with-lifetimes)
-### 調べること！！！
+### Todo
 - 注釈の必要性と方法がいまいちよくわからない。。。
 - ライフタイム、ライフタイムパラメータ
+- 上記を含めてまとめなおすこと
+# ジェネリクス
+[ Rust の最初のステップ ジェネリック型と特性を実装する / ジェネリック データ型とは](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/1-what-are-generic-data-types)
+[Rust入門 Chapter09 ジェネリクス](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/8ccf20)
+[RustCoder Chapter31 関数のジェネリクス](https://zenn.dev/toga/books/rust-atcoder/viewer/31-generic-function)
+- 任意の型（定義時点で不明な型）を受け取れる関数、構造体、列挙型等を定義する仕組みをジェネリクスという。
+- 任意の型のことをジェネリック型という。
+# 特性（トレイト）
+[Rust の最初のステップ / ジェネリック型と特性を実装する / 特性を使用して共有動作を定義する](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/2-define-shared-behavior-with-traits?source=learn)
+[TRPL トレイト: 共通の振る舞いを定義する](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html)
+[Rust by Example トレイト](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
+- 特性 = トレイト のこと。
+- 他の言語でいうインターフェースのようなもの。
+- 任意の型となりうるSelfに対して定義されたメソッドの集合のこと。同じトレイト内で宣言されたメソッド同士はお互いにアクセスすることができる。
+- 型の振る舞いは、その型に対して呼び出せるメソッドから構成されます。異なる型は、それらの型全てに対して同じメソッドを呼び出せるなら、 同じ振る舞いを共有することになります。トレイト定義は、メソッドシグニチャをあるグループにまとめ、なんらかの目的を達成するのに必要な一連の振る舞いを定義する手段です。
+## Todo
+- トレイトについてまとめること。いまいち理解しているか怪しい。
+# derive特性
+- 自身で定義した型（構造体、ジェネリック型）は`Debug`, `Display`, `PartialEq`特性を実装されていないため、同じ型同士での比較やターミナルへの表示がエラーとなる。
+- `#[derive(Trait)]`属性を使用すると、`Trait`特性が自動で実装される。
+    - `#[derive(Debug, PartialEq)]`であれば`Debug`, `PartialEq`特性が自動で実装される。
+# 反復子（イテレータ）
+- 値を1つずつ取り出して処理するためのもの
+- Range, スライスや配列やVecやHashMap等のコレクション型
+- すべての反復子で Iterator という名前の特性が実装されており、標準ライブラリに定義されている。
+    ```Rust
+    trait Iterator {
+    type Item;
+    fn next(&mut self) -> Option<Self::Item>;
+    }
+    ```
+- Iterator には next というメソッドがある。これを呼び出すと、Option<Item> が返される。next メソッドからは、要素がある限り、Some(Item) が返される。 すべての処理が完了すると、反復が終了したことを示す None が返される。
