@@ -216,7 +216,7 @@ Vec<String>
 - 型の振る舞いは、その型に対して呼び出せるメソッドから構成されます。異なる型は、それらの型全てに対して同じメソッドを呼び出せるなら、 同じ振る舞いを共有することになります。トレイト定義は、メソッドシグニチャをあるグループにまとめ、なんらかの目的を達成するのに必要な一連の振る舞いを定義する手段です。
 ## Todo
 - トレイトについてまとめること。いまいち理解しているか怪しい。
-- [演習 - ジェネリック型を実装する](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/6-exercise-implement-generic-type)の回答がよくわからない。そんなこと書いてない。
+- [演習 - ジェネリック型を実装する](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/6-exercise-implement-generic-type)の回答がよくわからない。そんなことどこにも書いてない。
 # derive特性
 - 自身で定義した型（構造体、ジェネリック型）は`Debug`, `Display`, `PartialEq`特性を実装されていないため、同じ型同士での比較やターミナルへの表示がエラーとなる。
 - `#[derive(Trait)]`属性を使用すると、`Trait`特性が自動で実装される。
@@ -232,3 +232,8 @@ Vec<String>
     }
     ```
 - Iterator には next というメソッドがある。これを呼び出すと、Option<Item> が返される。next メソッドからは、要素がある限り、Some(Item) が返される。 すべての処理が完了すると、反復が終了したことを示す None が返される。
+## Todo
+- 以下の反復子関連メソッドについて調べてまとめる。  
+  [演習 - 反復子を実装する](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/7-exercise-implement-iterator)の回答がよくわからないため。
+    - `drain`
+    - `collect`
