@@ -238,3 +238,27 @@ Vec<String>
   [演習 - 反復子を実装する](https://docs.microsoft.com/ja-jp/learn/modules/rust-generic-types-traits/7-exercise-implement-iterator)の回答がよくわからないため。
     - `drain`
     - `collect`
+# パッケージ、クレート、モジュール
+- パッケージ：1つ以上のクレートを持ち、ある機能を提供するための単位
+    - 1つの `Cargo.toml` で管理する粒度
+        - `Cargo.toml` にクレート達をビルドするための情報が含まれている
+    - 0個か1個のライブラリクレートを持つ
+    - バイナリクレートはいくらでも持って良い
+    - ライブラリクレートとバイナリクレートをあわせて少なくとも1つのクレートを持っていないといけない
+- クレート：ライブラリ(`lib.rs`)か実行可能ファイル(`main.rs`)を生成するモジュール群
+    - Rustのコンパイル単位である
+    - ライブラリクレート： `src/lib.rs`
+    - バイナリクレート： `src/main.rs`
+        - または `src/bin` ディレクトリにファイルを置くことで複数のバイナリクレートを持つことができる
+- モジュール： mod や use でまとめる単位
+```Shell
+<package>
+  - Cargo.toml
+  - src/
+    - lib.rs     ... 0 or 1
+    - main.rs    ... 0 or 1
+    - bin/       ... 0 or N (files)
+      - bin_a.rs
+      - bin_b.rs
+      - ...
+```
