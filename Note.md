@@ -263,6 +263,7 @@ Vec<String>
       - ...
 ```
 # テスト
+[Rust の最初のステップ / 自動テストを記述する](https://docs.microsoft.com/ja-jp/learn/modules/rust-automated-tests/)
 ## `assert!` マクロ
 - `assert(条件, メッセージ)`
 - 第一引数に指定された条件がtrueであることを表明する
@@ -273,6 +274,7 @@ Vec<String>
 - 式aと式bが等しいことを表明する
 - 条件がfalseの場合、省略可能なメッセージ引数を`panic!`に渡す
 ## ドキュメンテーションコメント、ドキュメントテスト
+[TRPL テストとしてのドキュメンテーションコメント](https://doc.rust-jp.rs/book-ja/ch14-02-publishing-to-crates-io.html#%E3%83%86%E3%82%B9%E3%83%88%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88)
 - `//` でコメントアウトできるが、`///` でドキュメントを記載できる
     - Markdown記法をサポートしている
     - `cargo doc` でHTMLドキュメントを生成できる
