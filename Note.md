@@ -193,6 +193,10 @@ Vec<String>
 - Resultはrustコンパイラから特別扱いされており、無視するとwarinigが出る。
 - Resultは例外がないrustにおける標準のエラーハンドリング方法。
 - エラーが発生する可能性がある場合は結果にResultを用いるようにすること。
+## ?演算子
+[TRPL エラー委譲のショートカット: ?演算子](https://doc.rust-jp.rs/book-ja/ch09-02-recoverable-errors-with-result.html#%E3%82%A8%E3%83%A9%E3%83%BC%E5%A7%94%E8%AD%B2%E3%81%AE%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88-%E6%BC%94%E7%AE%97%E5%AD%90)
+### Todo
+- ?演算子についてまとめること
 # 所有権・借用・参照
 ## 有効期間に注釈を付ける
 [ Rust の最初のステップ / Rust によるメモリ管理の方法を理解する / 有効期間を使用した参照の検証](https://docs.microsoft.com/ja-jp/learn/modules/rust-memory-management/3-validate-references-with-lifetimes)
@@ -281,3 +285,4 @@ Vec<String>
         - HTMLドキュメントは`target/doc`ディレクトリに配置される
 - ドキュメント内にコードブロックを追加すると、`cargo test`時にテストされる
     - サンプルコード等が動くことを保障できる
+# 
