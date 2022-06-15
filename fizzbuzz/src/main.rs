@@ -1,5 +1,5 @@
-mod fizzbuzz1;
+mod fizz_buzz1;
 
 fn main() {
-    fizzbuzz1::fizzbuzz1();
+    fizz_buzz1::fizz_buzz1();
 }
