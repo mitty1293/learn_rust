@@ -15,3 +15,7 @@ pub fn fizz_buzz1() {
         x += 1;
     }
 }
+
+fn test() {
+    println!()
+}
