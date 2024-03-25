@@ -1,0 +1,20 @@
+fn main() {
+    let mut height;
+    // 繰り返し
+    loop {
+        println!("身長(cm)は？ ");
+        height = input_f(0.0);
+        if height > 0.0 {
+            break;
+        }
+        println!("正しい数値を入力してください。");
+    }
+    // 標準体重を計算して表示
+    let weight = 22.0 * (height / 100.0).powf(2.0);
+    println!("標準体重は{:.1}kgです。", weight);
+}
+
+// 標準入力から文字列を得る
+fn input_str() -> String {
+    let mut
+}
