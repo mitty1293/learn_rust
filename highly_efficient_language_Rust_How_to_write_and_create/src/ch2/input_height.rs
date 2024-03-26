@@ -16,5 +16,16 @@ fn main() {
 
 // 標準入力から文字列を得る
 fn input_str() -> String {
-    let mut
+    let mut s = String::new();
+    std::io::stdin().read_line(&mut s).expect("入力エラー");
+    s.trim_end().to_string()
+}
+
+// 標準入力から実数を入力（失敗したらdefを返す）
+fn input_f(def: f64) -> f64 {
+    let s = input_str();
+    match s.trim().parse() {
+        Ok(v) => v,
+        Err(_) => def,
+    }
 }
